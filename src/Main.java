@@ -34,10 +34,7 @@ class Main {
             Log.isCorrect(" PreOrder ", "São Iguais");
         else Log.isError("PreOrder ", "Diferente");
 
-        System.out.println(tree.getRoot().getValue());
-        System.out.println(tree.search(tree.getRoot(), 56));
-
-/*        tree.remove(89);
+        tree.remove(89);
         elementsPreOrder =  (List<Integer>) tree.preOrder();
         elementsPreOrderTest =  Arrays.asList(23, 14, 4, -4, 7, 15, 67, 56);
         if(elementsPreOrder.equals(elementsPreOrderTest))
@@ -48,6 +45,5 @@ class Main {
             Log.isCorrect(" Busca ", "OK");
         else  Log.isError("Busca ", "erro");
 
- */
     }
 }

@@ -211,16 +211,15 @@ public class AVL {
         }
     }
 
-    public int search (int value){
+    public boolean search (int value){
         return search(root, value);
     }
 
 
-
-    public int search (Node node, int value) {
+    public boolean search (Node node, int value) {
         if (node != null) {
             if (node.value == value) {
-                return node.getValue();
+                return true;
             }
             else if (value < node.value) {
                 return search(node.left, value);
@@ -228,31 +227,54 @@ public class AVL {
             }else return search(node.right, value);
 
         }
-        return 0;
+        return false;
     }
-    private Node searchIn (Node node, int value) {
-        if (node != null) {
-            if (node.value == value) {
-                return node;
+
+    public void remove(int value) {
+        root = remove(root, value);
+    }
+
+    private Node remove(Node node, int value) {
+        if (node == null) {
+            return null;
+        }
+
+        if (value < node.value) {
+            node.left = remove(node.left, value);
+        } else if (value > node.value) {
+            node.right = remove(node.right, value);
+        } else {
+            // Case 1: No children
+            if (node.left == null && node.right == null) {
+                return null;
             }
-            else if (value < node.value) {
-                return searchIn(node.left, value);
 
-            }else return searchIn(node.right, value);
+            // Case 2: One child
+            if (node.left == null) {
+                return node.right;
+            } else if (node.right == null) {
+                return node.left;
+            }
 
+            // Case 3: Two children
+            Node minNode = findMin(node.right);
+            node.value = minNode.value;
+            node.right = remove(node.right, minNode.value);
         }
-        return null;
+
+        // Update height
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
+
+        // Rotations
+        return rotate(node);
     }
 
-    private void remove(Node node, int value) {
-        Node target = searchIn(root, value);
-        Node aux = target.left;
-        while (aux.right != null){
-            aux.right = node;
+    private Node findMin(Node node) {
+        while (node.left != null) {
+            node = node.left;
         }
-        target = aux;
-
-
+        return node;
     }
+
 
 }
