@@ -211,16 +211,16 @@ public class AVL {
         }
     }
 
-    public boolean search (int value){
+    public int search (int value){
         return search(root, value);
     }
 
 
 
-    public boolean search (Node node, int value) {
+    public int search (Node node, int value) {
         if (node != null) {
             if (node.value == value) {
-                return true;
+                return node.getValue();
             }
             else if (value < node.value) {
                 return search(node.left, value);
@@ -228,7 +228,31 @@ public class AVL {
             }else return search(node.right, value);
 
         }
-        return false;
+        return 0;
+    }
+    private Node searchIn (Node node, int value) {
+        if (node != null) {
+            if (node.value == value) {
+                return node;
+            }
+            else if (value < node.value) {
+                return searchIn(node.left, value);
+
+            }else return searchIn(node.right, value);
+
+        }
+        return null;
+    }
+
+    private void remove(Node node, int value) {
+        Node target = searchIn(root, value);
+        Node aux = target.left;
+        while (aux.right != null){
+            aux.right = node;
+        }
+        target = aux;
+
+
     }
 
 }
