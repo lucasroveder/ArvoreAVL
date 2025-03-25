@@ -4,9 +4,9 @@ O desafio consistia em desenvolver uma Árvore AVL que seria testada com os segu
 - insert
     -> Insere um número, avalia o fator de balanceamento e, caso necessário, faz o balanceamento da árvore
 - inOrder, preOrder, posOrder
-    -> São diferentes comandos que retornam os elementos da árvore AVL em diferentes ordens sendo:
-      ! inOrder: subárvore esquerda - nó - subárvore direita
-      ! preOrder: nó - subárvore esquerda - subárvore direita
+    -> São diferentes comandos que retornam os elementos da árvore AVL em diferentes ordens sendo: <br/>
+      ! inOrder: subárvore esquerda - nó - subárvore direita <br/>
+      ! preOrder: nó - subárvore esquerda - subárvore direita <br/>
       ! posOrder: subárvore esquerda - subárvore direita - nó
 - search
   -> Retorna um boolean caso o valor informado existe dentro da árvore
