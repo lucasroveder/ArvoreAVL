@@ -1,6 +1,10 @@
 import java.util.Arrays;
 import java.util.List;
 
+
+// -- Nome do aluno: Lucas Roveder Dias --
+// Aqui na main eu copiei o que tinha na classe Test disponibilizada no desafio
+// Ao rodar, no console é esperado que saia tudo ok
 class Main {
     public static void main(String[] args) {
         AVL tree = new AVL();
